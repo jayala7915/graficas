@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="160px" height="160px" viewBox="0 0 160 160" enable-background="new 0 0 160 160" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<path fill="#DADADA" d="M150.303,111.438c0,3.869-3.166,7.035-7.033,7.035H16.732c-3.868,0-7.034-3.166-7.034-7.035V25.352
+				c0-3.869,3.166-7.034,7.034-7.034H143.27c3.867,0,7.033,3.165,7.033,7.034V111.438L150.303,111.438z"/>
+		</g>
+		<path fill="#878787" d="M9.698,105.477V25.352c0-3.868,3.167-7.034,7.036-7.034h126.534c3.869,0,7.033,3.166,7.033,7.034v80.125
+			H9.698z"/>
+		<rect x="15.207" y="24.279" fill="#FFFFFF" width="128.898" height="74.62"/>
+		<polygon fill="#C6C6C6" points="98.998,141.408 60.464,141.408 63.521,118.473 95.939,118.473 		"/>
+		<polygon fill="#B2B2B2" points="96.348,121.527 63.116,121.527 63.521,118.473 95.939,118.473 		"/>
+		<rect x="48.781" y="139.468" fill="#DADADA" width="61.62" height="2.216"/>
+	</g>
+	<rect x="15.207" y="24.279" fill="#EDEDED" width="128.898" height="74.62"/>
+	<rect x="15.207" y="24.279" fill="#DADADA" width="128.898" height="6.069"/>
+	<g enable-background="new    ">
+		<path fill="#B2B2B2" d="M64.024,52.332h7.171v6.965h-7.171V52.332z M64.024,71.472h7.171v6.965h-7.171V71.472z"/>
+		<path fill="#B2B2B2" d="M84.762,88.29c-4.127-6.655-7.429-13.826-7.429-23.783c0-8.306,2.683-16.509,7.429-23.782h4.799
+			c-4.127,7.429-6.346,15.115-6.346,23.782c0,8.668,2.012,16.406,6.346,23.783H84.762z"/>
+	</g>
+	<g>
+		<circle fill="#FF6159" cx="19.642" cy="27.315" r="1.167"/>
+		<circle fill="#FFC02F" cx="23.379" cy="27.315" r="1.167"/>
+		<circle fill="#28CA42" cx="27.117" cy="27.315" r="1.168"/>
+	</g>
+</g>
+</svg>
