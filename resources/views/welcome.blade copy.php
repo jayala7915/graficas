@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+<!-- En cualquier vista que muestre los cards -->
+<a href="{{ route('showmore', ['texto_identificador' => $item->texto_identificador]) }}" class="btn btn-primary">
+    Ver más
+</a>
+
+
+
+
+
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar y Carrusel Mejorado</title>
@@ -1061,7 +1073,10 @@
 
 
     </div>
+    
 </section>
+
+
 
 
 <!-- Script para desplazamiento suave al hacer clic en el botón -->
@@ -1096,4 +1111,5 @@
     </script>
 
 </body>
+
 </html>

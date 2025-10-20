@@ -2,771 +2,176 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Navbar y Carrusel Mejorado</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa - Inicio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* Navbar más ancho y con línea blanca debajo */
+        /* Estilos personalizados */
+        .top-bar {
+            background-color: #f8f9fa;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .social-icons a {
+            color: #495057;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        
+        .phone-number {
+            color: #495057;
+        }
+        
         .navbar {
-            transition: background-color 0.3s;
-            padding: 15px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 0;
         }
-        .navbar.transparent {
-            background-color: transparent;
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
         }
-        .navbar.solid {
-            background-color: #004d40;
-        }
-
-        /* Submenu en "Servicios" */
-        .dropdown-menu {
-            background: #004d40;
-            border: none;
-        }
-        .dropdown-item {
-            color: white;
-        }
-        .dropdown-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Ajuste de tamaño fijo en el carrusel */
-        .carousel {
-            max-height: 500px;
-            overflow: hidden;
-        }
-        .carousel-item img {
-            width: 100%;
+        
+        .carousel-item {
             height: 500px;
+        }
+        
+        .carousel-item img {
             object-fit: cover;
+            height: 100%;
         }
-
-        /* Flechas más pequeñas y bien posicionadas */
-        .carousel-control-prev, .carousel-control-next {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 50%; /* Centra las flechas verticalmente */
-            transform: translateY(-50%);
-            z-index: 1000; /* Garantiza que se vean */
-        }
-        .carousel-control-prev-icon, .carousel-control-next-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Superposición completa sobre el carrusel */
-        .overlay {
-            position: absolute;
+        
+        /* Estilos para hacer la barra superior y navbar fijos */
+        .sticky-top-bar {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 77, 64, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 100px;
-        }
-        .overlay .content {
-            color: white;
-            max-width: 500px;
-        }
-        .overlay h2 {
-            font-size: 42px;
-            font-weight: bold;
-        }
-        .overlay p {
-            font-size: 18px;
-        }
-        .overlay .btn-purple {
-            background-color: purple;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .expanded-section {
-    overflow-x: hidden; /* Evita que el contenido se desborde horizontalmente */
-    width: 100vw; /* Asegura que ocupe toda la pantalla sin provocar scroll */
-    max-width: 100%; /* Evita crecimiento inesperado */
-}
-
-.boton_redondo{position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #00c59e;
-  color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  top: -10%;
-}
-
-
-
-.card-container {
-            display: flex;
-            gap: 100px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+            z-index: 1030;
         }
         
-        
-        .card {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 5px 0;
+                font-size: 0.8rem;
+            }
+            
+            .carousel-item {
+                height: 300px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
         }
-        
-        .card-header {
-            background-color: #8a2be2; /* Violeta */
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .card-header h3 {
-            margin: 0;
-        }
-        
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .card-body {
-            padding: 20px;
-            background-color: white;
-        }
-        
-        .card-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #8a2be2; /* Violeta */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            margin-top: 15px;
-        }
-        
-        .card-button:hover {
-            background-color: #7b1fa2;
-        }
-
-        .motivation-container {
-        padding: 20px;
-        margin: 25px 0;
-    }
-
-    .motivation-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-        position: relative;
-    }
-
-    .motivation-item:last-child {
-        margin-bottom: 0;
-    }
-
-    .image-container {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: stretch;
-    }
-
-    .image-container img {
-        width: 250px;
-        height: 100%;
-        object-fit: cover;
-        
-     
-        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-
-    .text-container {
-        flex-grow: 1;
-        padding: 20px;
-        padding-left: 50px;
-        margin-left: -30px;
-    }
-
-    .green-bg {
-        background-color: #e8f5e9;
-        border-radius: 0px;
-    }
-
-    .right ~ .text-container {
-        padding-left: 20px;
-        padding-right: 50px;
-        margin-left: 0;
-        margin-right: -30px;
-    }
-
-    .text-content p {
-        margin: 0;
-        line-height: 1.6;
-        color: #333;
-    }
-
-    .first-word {
-        font-size: 1.2em;
-        font-weight: bold;
-        font-style: italic;
-        color: #2e7d32;
-    }
-
-    /* Alineación automática */
-    .left {
-        order: 1;
-    }
-    .right {
-        order: 3;
-    }
-    .text-container {
-        order: 2;
-    }
-
-    .motivation-item:nth-child(even) .image-container {
-        order: 3;
-    }
-    .motivation-item:nth-child(even) .text-container {
-        order: 1;
-        padding-left: 20px;
-        padding-right: 50px;
-        margin-left: 0;
-        margin-right: -30px;
-    }
-
-
-      /* Sección El Directorio */
-      .director-container {
-            background-color: #e8f5e9;
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .director-container img {
-            width: 250px;
-            height: 100%;
-            object-fit: cover;
-        }
-        .separator {
-            width: 5px;
-            height: 100%;
-            background-color: #4a9c76;
-            margin: 0 20px;
-        }
-        .director-info {
-            color: #6d6d6d;
-            flex: 1;
-        }
-        .director-info h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            font-style: italic;
-            color: #6d6d6d;
-        }
-        .director-info h2 span {
-            font-size: 2.5rem;
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        /* Cards */
-        .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        .card-item {
-            display: flex;
-            align-items: center;
-            width: 30%;
-            background-color: white;
-            padding: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .card-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-        .card-info-container {
-            display: flex;
-            flex-direction: column;
-            margin-left: 10px;
-            align-items: flex-start;
-            width: 100%;
-        }
-        .card-info {
-            background-color: rgb(0, 197, 158);
-            padding: 10px;
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            width: 100%;
-        }
-        .card-description {
-            font-size: 14px;
-            color: #6d6d6d;
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        .cards-container2 {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .card-item2 {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-    
-    .card-item2:hover {
-        transform: translateY(-5px);
-    }
-    
-    .card-item2 img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        display: block;
-    }
-    
-    .card-info-container2 {
-        padding: 15px;
-        background-color: rgb(0, 197, 158);
-    }
-    
-    .card-title-wrapper2 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-    
-    .card-info2 {
-        font-weight: bold;
-        font-size: 16px;
-        color: white;
-        flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .card-button2 {
-        background-color: white;
-        color: rgb(0, 197, 158);
-        border: none;
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 25%;
-       
-        font-weight: bold;
-       
-       
-        transition: all 0.3s ease;
-    }
-    
-    .card-button2:hover {
-        background-color: #f0f0f0;
-    }
-    
-    .card-description2 {
-        margin: 0;
-        color: white;
-        font-size: 14px;
-    }
-
-    .col-md-4 img {
-  width: 100%; /* Mantiene la imagen dentro de su contenedor */
-  max-height: 200px; /* Ajusta la altura máxima según sea necesario */
-  object-fit: cover; /* Mantiene la proporción sin deformaciones */
-}
-
-
-        
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top transparent" id="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_Navbar.png" alt="Logo" width="80">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            Servicios
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Consultoría</a></li>
-                            <li><a class="dropdown-item" href="#">Desarrollo Web</a></li>
-                            <li><a class="dropdown-item" href="#">Marketing Digital</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Carrusel con superposición de contenido -->
-    
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @foreach($carousel as $index => $carousels)
-        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-            <img src="{{ asset('storage/'.$carousels->imagen) }}" alt="Carrusel {{ $index + 1 }}">
-            <div class="overlay">
-                <div class="content">
-                    <h2>{{$carousels->nombre_titulo}}</h2>
-                    <p>{{$carousels->texto}}</p>
-                    <a href="#" class="btn-purple">Más información</a>
+    <!-- Barra superior con redes sociales y teléfono -->
+    <div class="sticky-top-bar">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="social-icons">
+                            <a href="#" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <span class="phone-number">
+                            <i class="bi bi-phone"></i> (123) 456-7890
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-        @endforeach
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
-<!-- Sección debajo del carrusel -->
-<div class="info-section text-center position-relative" style="overflow: hidden;"> 
-    <div style="height: 5px; background-color:rgb(0, 197, 158); width: 100%; position: absolute; top: 0;"></div> <!-- Línea ajustada al tope del carrusel -->
 
-    <!-- Círculo invertido con flecha blanca sobre la línea -->
-    <button id="expandButton" class="btn d-flex align-items-center justify-content-center boton_redondo">
-        <i class="fas fa-chevron-down" style="font-size: 20px; font-style: initial"></i>
-    </button>
-
-    <div class="container mt-5">
-        <div class="row text-secondary text-center">
-           
-            @foreach($seccionmedia as $sec)
-            <div class="col-md-4">
-                <h3 class="fw-bold text-dark">{{$sec->titulo_seccion }}</h3>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjEwIiB5PSIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCI+TUkgRU1QUkVTQTwvdGV4dD48L3N2Zz4=" alt="Logo Empresa" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            @endforeach
+        </nav>
+    </div>
+
+    <!-- Carrusel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-    </div>
-</div>
-
-<!-- Sección oculta que se despliega -->
-<div id="expandedContent" class="expanded-section py-5 bg-light" style="display: none; transition: all 0.5s ease-in-out;">
-    <div class="container">
-        <div class="row text-center">
-            
-            @foreach($seccionmedia as $sec2)
-            <div class="col-md-4">
-                <p class="fw-bold text-secondary">{{$sec2->texto}}</p>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Oficina moderna">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Bienvenido a nuestra empresa</h5>
+                    <p>Soluciones innovadoras para tu negocio</p>
+                </div>
             </div>
-            @endforeach
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Equipo de trabajo">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Nuestros Servicios</h5>
+                    <p>Conoce todo lo que podemos hacer por ti</p>
+                </div>
             </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Atención al cliente">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Contáctanos</h5>
+                    <p>Estamos listos para ayudarte</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
     </div>
 
-    <!-- Imagen con degradado alineada correctamente (fuera del container) -->
-<div class="position-relative mt-4" style="width: 100vw;">
-    <div class="overlay-gradient" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-         background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0));"></div>
-@foreach($imagenSeccionMedia as $imagenMedia)
-            <img src="{{ asset('storage/'.$imagenMedia->imagen) }}" class="img-fluid" style="width: 100vw; max-height: 300px;" alt="Imagen muestra">
-
-            <!-- Contenedor del texto ajustado -->
-            <!-- Contenedor del texto ajustado -->
-        <div class="position-absolute text-overlay" style="top: 50%; left: 5%; transform: translateY(-50%);
-     color: #009578; font-weight: bold; font-family: 'Poppins', sans-serif; width: 33%; word-wrap: break-word; line-height: 1.2;">
-    <span style="font-size: 38px;">{!! $imagenMedia->nombre_titulo !!}</span>
-    @endforeach
-</div>
-    
-</div>
-<!-- Sección "Quiénes Somos" -->
-<section id="quienesSomos" class="py-5">
-    <div class="container">
-        <!-- Primera parte: Hablemos de Nosotros -->
-         @foreach($gruposmisionVision as $nombreTitulo => $misionVision)
+    <!-- Contenido de ejemplo (opcional) -->
+    <div class="container my-5">
         <div class="row">
-            <div class="col-12">
-                <h2 class="fw-bold" style="color: #6A5ACD; font-size: 24px;">{!! $nombreTitulo !!}</h2>
-                @foreach($misionVision as $MV)
-                    
-                <p style="color: #009578; font-size: 16px;">
-                   {{$MV->texto}}
-                </p>
-                @endforeach
+            <div class="col-12 text-center">
+                <h2>Nuestra Empresa</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
-        @endforeach
-        
-
-        <div class="card-container">
-            @foreach($conoceMas as $conoce)
-            <div class="card">
-                <div class="card-header">
-                    <h3>{!! $conoce->nombre_titulo !!}</h3>
-                </div>
-                <img src="{{ asset('storage/'.$conoce->imagen) }}" alt="Cómo nace la cámara" class="card-image">
-                <div class="card-body">
-                    <p>{{$conoce->texto_corto}}</p>
-                    <a href="#" class="card-button">Ver más</a>
-                </div>
-            </div>
-            @endforeach
-                   
-            
-                    
-
-            <div class="motivation-container">
-
-            @foreach($historiasEmpresa as $historias)
-                <!-- Primer elemento -->
-                <div class="motivation-item">
-                    <div class="image-container left">
-                        <img src="{{ asset('storage/'.$historias->imagen) }}" alt="Inspiración">
-                    </div>
-                    <div class="text-container green-bg">
-                        <div class="text-content">
-                            <p><span class="first-word">{!! $historias->nombre_titulo !!}</span>{{$historias->texto}}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-               
-            </div>
-
-            
-
-        </div>
-
-            <div class="motivation-container">
-              <h2 class="fw-bold" style="color: #6A5ACD; font-size: 24px;">UN EQUIPO QUE ÚNE | CONOCE COMO ESTAMOS FORMADOS</h2>
-
-              <div class="container mt-5">
-        <!-- Sección El Directorio -->
-         @foreach($directorio as $direc)
-          @if($direc->rango_pagina === 'Cabecera')
-        <div class="director-container">
-            <img src="{{ asset('storage/'.$direc->imagen) }}" alt="Equipo">
-            <div class="separator"></div>
-            <div class="director-info">
-                <h2>{!! $direc->nombre_titulo !!}</h2>
-                <p>{{ $direc->texto_descripcion_direc }}</p>
-            </div>
-        </div>
-        @endif
-        @endforeach
-
-        <!-- Cards -->
-        <div class="cards-container">
-            @foreach($directorio as $direc)
-          @if($direc->rango_pagina === 'Medio')
-            <div class="card-item">
-                <img src="{{ asset('storage/'.$direc->imagen) }}" alt="Miembro">
-                <div class="card-info-container">
-                    <div class="card-info">{{$direc->nombre}}</div>
-                    <p class="card-description">{{$direc->cargo.' '.$direc->texto}}</p>
-                </div>
-            </div>
-            @endif
-        @endforeach
-            
-        </div>
-<div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @php
-            // Filtrar y agrupar los elementos del carrusel
-            $carouselItems = $directorio->where('rango_pagina', 'Carousel')->chunk(3);
-        @endphp
-
-        @foreach($carouselItems as $index => $chunk)
-        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-            <div class="row">
-                @foreach($chunk as $direc)
-                <div class="card-item">
-                    <img src="{{ asset('storage/'.$direc->imagen) }}" alt="Miembro">
-                    <div class="card-info-container">
-                        <div class="card-info">{{$direc->nombre}}</div>
-                        <p class="card-description">{{$direc->cargo.' '.$direc->texto}}</p>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @endforeach
-    </div>
-    
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-</div>
-
-        
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-            
-                
-            
-                
-
-                
-            </div>
-
-            <h2 class="fw-bold" style="color: #6A5ACD; font-size: 24px;">UN EQUIPO QUE ÚNE | CONOCE COMO ESTAMOS FORMADOS</h2>
-            <div class="cards-container2">
-                <!-- Ejemplo con 11 cards (se repetirá el mismo contenido) -->
-                 @foreach($servicios as $serv)
-                <div class="card-item2">
-                    <img src="{{ asset('storage/'.$serv->imagen) }}" alt="Miembro">
-                    <div class="card-info-container2">
-                        <div class="card-title-wrapper2">
-                            <div class="card-info2">{!! $serv->nombre_titulo !!} </div>
-                            <button class="card-button2">Ver más</button>
-                        </div>
-                        
-                    </div>
-                </div>
-                @endforeach
-               
-            </div>
-
-
-            <h2 class="fw-bold" style="color: #6A5ACD; font-size: 24px;">UN EQUIPO QUE ÚNE | CONOCE COMO ESTAMOS FORMADOS</h2>
-            
-<div id="carouselExample3" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @foreach($socios->chunk(4) as $index => $chunk)
-        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-            <div class="row">
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    @foreach($chunk as $soc)
-                    <div class="col">
-                        <div class="card mb-3" style="max-width: 540px; border: none; background-color: #e8f5e9;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('storage/'.$soc->imagen) }}" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body" style="max-width: 540px; background-color: #e8f5e9;">
-                                        <h5 class="card-title">{{$soc->socio}}</h5>
-                                        <div class="card-text text-muted">
-                                            <i class="fas fa-phone"></i> Teléfono: {{$soc->telefono}}<br>
-                                            <i class="fas fa-map-marker-alt"></i> Dirección: {{$soc->ubicacion}}<br>
-                                            <i class="fas fa-envelope"></i> Correo: {{$soc->correo}}<br>
-                                            <i class="fas fa-globe"></i> Página Web: {{$soc->pagina_web}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-</div>
-
-
-    </div>
-</section>
-
-
-<!-- Script para desplazamiento suave al hacer clic en el botón -->
-<script>
-    document.getElementById("quienesSomosBtn").addEventListener("click", function() {
-        document.getElementById("quienesSomos").scrollIntoView({ behavior: "smooth" });
-    });
-</script>
-</div>
-
-
-
-<script>
-    document.getElementById("expandButton").addEventListener("click", function() {
-        let content = document.getElementById("expandedContent");
-        content.style.display = content.style.display === "none" ? "block" : "none";
-    });
-</script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.remove('transparent');
-                navbar.classList.add('solid');
-            } else {
-                navbar.classList.remove('solid');
-                navbar.classList.add('transparent');
-            }
-        });
-    </script>
-
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

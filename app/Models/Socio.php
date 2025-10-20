@@ -17,4 +17,10 @@ class Socio extends Model
         'pagina_web',
         'imagen'
     ];
+
+    // En app/Models/Socio.php
+public function ofertasLaborales()
+{
+    return $this->hasMany(OfertaLaboral::class);
+}
 }

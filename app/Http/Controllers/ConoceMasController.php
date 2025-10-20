@@ -23,13 +23,13 @@ class ConoceMasController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'titulo_id' => 'required|exists:titulos,id',
             'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'texto_corto' => 'required|string|max:255',
             'texto_largo' => 'required|string',
             'ruta' => 'required|string|unique:conoce_mas,ruta'
-        ]);
+        ]);*/
 
         $imagenPath = $request->file('imagen')->store('conoce_mas', 'public');
 
@@ -58,13 +58,13 @@ class ConoceMasController extends Controller
 
     public function update(Request $request, ConoceMas $conoceMas)
     {
-        $request->validate([
+        /*$request->validate([
             'titulo_id' => 'required|exists:titulos,id',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'texto_corto' => 'required|string|max:255',
             'texto_largo' => 'required|string',
             'ruta' => 'required|string|unique:conoce_mas,ruta,'.$conoceMas->id
-        ]);
+        ]);*/
 
         $data = [
             'titulo_id' => $request->titulo_id,
