@@ -40,124 +40,66 @@
         }
        
        
-       
-       
-   
-    /* Encabezado */
-    .header {
+ 
+    /* Contacto */
+    .contact-section {
+      padding: 60px 20px;
+    }
+    .info, .formulario {
       background: #fff;
-      padding: 15px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    .header h2 {
-      margin: 0;
-      font-size: 18px;
-      color: #444;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .info h3 {
+      color: #008f6a;
+      margin-bottom: 15px;
     }
-
-    /* Menú de categorías */
-    .menu {
-      display: flex;
-      justify-content: center;
-      background: #666;
-      flex-wrap: wrap;
-    }
-    .menu a {
-      color: #fff;
-      padding: 12px 18px;
-      text-decoration: none;
+    .info p, .info .item {
       font-size: 14px;
-      transition: background 0.3s;
-    }
-    .menu a:hover,
-    .menu a.active {
-      background: #444;
-      border-bottom: 3px solid #fff;
-    }
-
-    .nota {
-      text-align: center;
-      font-size: 12px;
       color: #555;
-      margin: 10px 0;
     }
-
-    /* Contenedor de cajas */
-    .cajas {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-    }
-    .caja {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      width: 200px;
-      padding: 15px;
-      text-align: center;
-    }
-    .caja img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .caja h3 {
-      font-size: 16px;
-      margin: 5px 0;
-      color: #444;
-    }
-    .info {
-      background: #f5fafa;
-      border-radius: 6px;
-      padding: 8px;
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .precio {
-      font-size: 16px;
-      font-weight: bold;
+    .info .item strong {
       color: #008f6a;
     }
-    .precio span {
-      font-size: 12px;
-      display: block;
-      color: #555;
-    }
 
-    /* Paginador */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
+    /* Formulario */
+    .formulario h3 {
+      color: #008f6a;
+      margin-bottom: 10px;
     }
-    .pagination li {
-      margin: 0 5px;
-    }
-    .pagination a {
-      padding: 8px 12px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      text-decoration: none;
-      color: #333;
+    .formulario p {
       font-size: 14px;
+      margin-bottom: 20px;
+      color: #666;
     }
-    .pagination a.active {
-      background: #008f6a;
-      color: #fff;
+    .formulario input,
+    .formulario select,
+    .formulario textarea {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      padding: 12px;
+    }
+    .formulario input:focus,
+    .formulario select:focus,
+    .formulario textarea:focus {
       border-color: #008f6a;
+      box-shadow: 0 0 4px rgba(0,143,106,0.4);
     }
-    .pagination a:hover {
-      background: #ddd;
+    .formulario button {
+      background: #008f6a;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      transition: 0.3s;
     }
- 
+    .formulario button:hover {
+      background: #006f53;
+    }
     </style>
 </head>
 <body>
@@ -210,74 +152,69 @@
         </nav>
     </div>
 
+<!-- Contacto -->
+<div class="container contact-section">
+  <div class="row g-4">
+    <!-- Info -->
+    <div class="col-lg-5">
+      <div class="info">
+        <h3>Contacto</h3>
+        <p>Para asesoría o una cotización personalizada puedes escribirnos o llamarnos.</p>
+        <div class="item mb-3">
+          <strong>Dirección:</strong><br>
+          Vía a Daule Km. 12 "Comercial Plaza Saibaiba" <br>
+          Av. de las Américas No 100 y calle 7ma.
+        </div>
+        <div class="item mb-3">
+          <strong>Whatsapp:</strong><br>
+          (+593) 98 877 2322
+        </div>
+        <div class="item mb-3">
+          <strong>Teléfonos:</strong><br>
+          Imprenta: (+593) 99 442 4889 <br>
+          Oficina: (04) 228 6882 – Ext 149
+        </div>
+        <div class="item">
+          <strong>Correo electrónico:</strong><br>
+          ventas@imprimium.ec <br>
+          info@imprimium.ec
+        </div>
+      </div>
+    </div>
 
-  <!-- Menú de categorías -->
-  <div class="menu">
-    <a href="#" class="active">Base con tapa</a>
-    <a href="#">Con ventana</a>
-    <a href="#">Troqueladas</a>
-    <a href="#">Con nicho</a>
-    <a href="#">Papel manteca</a>
-    <a href="#">1 cuerpo</a>
-    <a href="#">Resistente a frío/calor</a>
+    <!-- Formulario -->
+    <div class="col-lg-7">
+      <div class="formulario">
+        <h3>¿Necesitas una asesoría o cotización?</h3>
+        <p>Déjanos tus datos y pronto nos pondremos en contacto contigo.</p>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Nombre *" required></div>
+            <div class="col-md-6"><input type="text" class="form-control" placeholder="Apellido *" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" placeholder="Correo electrónico *" required></div>
+            <div class="col-md-6"><input type="tel" class="form-control" placeholder="Celular *" required></div>
+            <div class="col-12">
+              <select class="form-select" required>
+                <option value="">¿En qué servicio estás interesado?</option>
+                <option>Impresión Offset y Digital</option>
+                <option>Packaging</option>
+                <option>Otros</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control" placeholder="Detállanos tu requerimiento *" required></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="w-100">ENVIAR</button>
+            </div>
+          </div>
+        </form>
+        <p class="mt-3 small">Revisa nuestro catálogo <a href="#">aquí</a>.</p>
+      </div>
+    </div>
   </div>
+</div>
 
-  <!-- Nota -->
-  <p class="nota">
-    *Consultar con un asesor sobre material disponible en cada modelo. | Precios no incluyen IVA.
-  </p>
-
-  <!-- Productos -->
-  <div class="cajas">
-    <!-- Producto 1 -->
-    <div class="caja">
-      <img src="https://creativeprint.com.ec/wp-content/uploads/2024/04/gigantografias.png" alt="Caja 1">
-      <h3>Caja 1</h3>
-      <div class="info"><strong>Medidas:</strong> 10x10x5</div>
-      <div class="precio">$0.35 unidad <span>(hasta 100 uds.)</span></div>
-    </div>
-
-    <!-- Producto 2 -->
-    <div class="caja">
-      <img src="https://creativeprint.com.ec/wp-content/uploads/2024/04/gigantografias.png" alt="Caja 2">
-      <h3>Caja 2</h3>
-      <div class="info"><strong>Medidas:</strong> 15x15x4</div>
-      <div class="precio">$0.35 unidad <span>(hasta 100 uds.)</span></div>
-    </div>
-
-    <!-- Producto 3 -->
-    <div class="caja">
-      <img src="https://creativeprint.com.ec/wp-content/uploads/2024/04/gigantografias.png" alt="Caja 3">
-      <h3>Caja 3</h3>
-      <div class="info"><strong>Medidas:</strong> 20x20x5</div>
-      <div class="precio">$0.60 unidad <span>(hasta 100 uds.)</span></div>
-    </div>
-
-    <!-- Producto 4 -->
-    <div class="caja">
-      <img src="https://creativeprint.com.ec/wp-content/uploads/2024/04/gigantografias.png" alt="Caja 4">
-      <h3>Caja 19</h3>
-      <div class="info"><strong>Medidas:</strong> 20x20x7</div>
-      <div class="precio">$0.80 unidad <span>(hasta 100 uds.)</span></div>
-    </div>
-
-    <!-- Producto 5 -->
-    <div class="caja">
-      <img src="https://creativeprint.com.ec/wp-content/uploads/2024/04/gigantografias.png" alt="Caja 5">
-      <h3>Caja 20</h3>
-      <div class="info"><strong>Medidas:</strong> 25x20x7</div>
-      <div class="precio">$1.20 unidad <span>(hasta 100 uds.)</span></div>
-    </div>
-  </div>
-
-  <!-- Paginador -->
-  <ul class="pagination">
-    <li><a href="#">&laquo;</a></li>
-    <li><a href="#" class="active">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">&raquo;</a></li>
-  </ul>
 
 
     <!-- Bootstrap 5 JS Bundle with Popper -->

@@ -8,8 +8,8 @@
         <img src="{{ asset('storage/Logo_Original.jpg') }}"
           class="img-fluid" alt="Login illustration">
 
-           <!--<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-          class="img-fluid" alt="Login illustration">-->
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOsor_64-iS0ji5GlIg0Ygk4pAjPcFF-61kw&s"
+          class="img-fluid" alt="Login illustration">
       </div>
       <div class="col-md-8 col-lg-5 col-xl-5 offset-xl-1">
         <div class="card shadow-sm" style="border-radius: 1rem; border: none;">
@@ -17,7 +17,7 @@
             <form method="POST" action="{{ route('login') }}">
               @csrf
               <div class="text-center mb-4">
-                <h2 class="fw-bold mb-3">Camara de Industrias</h2>
+                <h2 class="fw-bold mb-3">Graficas Liz</h2>
               </div>
 
               <!-- Email input -->
